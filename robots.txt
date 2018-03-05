@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-Sitemap: http://zootaxist.ru/796543_2.xml
-Host: www.zootaxist.ru
