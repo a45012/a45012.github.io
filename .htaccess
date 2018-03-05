@@ -1,0 +1,26 @@
+RewriteEngine on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+ExpiresActive On
+ExpiresByType text/html "access plus 60 minutes"
+ExpiresByType application/javascript "access plus 60 minutes"
+ExpiresByType text/css "modification plus 60 minutes"
+ExpiresByType image/gif "access plus 60 minutes"
+ExpiresByType image/png "access plus 60 minutes"
+ExpiresByType image/jpeg "access plus 60 minutes"
+ExpiresByType image/jpg "access plus 60 minutes"
+
+# сжатие text, html, javascript, css, xml:
+<ifModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
+</ifModule> 
+
+
+
+<Limit GET POST>
+ order allow,deny
+ deny from 176.59.54.250 
+ deny from 178.248.234.146
+ allow from all
+</Limit>
